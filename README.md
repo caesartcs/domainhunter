@@ -1,3 +1,9 @@
+# tb changes
+
+- 10.12.18
+    + Added RunMe.sh
+    + Only allowed BlueCoat cat. to run in main py           
+
 # Domain Hunter
 
 Authors Joe Vest (@joevest) & Andrew Chiles (@andrewchiles)
