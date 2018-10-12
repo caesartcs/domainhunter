@@ -88,7 +88,7 @@ def checkBluecoat(domain):
         print('[-] Error retrieving Bluecoat reputation! {0}'.format(e))
         return "error"
 
-def checkIBMXForce(domain):
+"""def checkIBMXForce(domain):
     try: 
         url = 'https://exchange.xforce.ibmcloud.com/url/{}'.format(domain)
         headers = {'User-Agent':useragent,
@@ -125,8 +125,8 @@ def checkIBMXForce(domain):
     except Exception as e:
         print('[-] Error retrieving IBM-Xforce reputation! {0}'.format(e))
         return "error"
-
-def checkTalos(domain):
+"""
+"""def checkTalos(domain):
     url = 'https://www.talosintelligence.com/sb_api/query_lookup?query=%2Fapi%2Fv2%2Fdetails%2Fdomain%2F&query_entry={0}&offset=0&order=ip+asc'.format(domain)
     headers = {'User-Agent':useragent,
                'Referer':url}
@@ -153,8 +153,8 @@ def checkTalos(domain):
     except Exception as e:
         print('[-] Error retrieving Talos reputation! {0}'.format(e))
         return "error"
-
-def checkMXToolbox(domain):
+"""
+"""def checkMXToolbox(domain):
     url = 'https://mxtoolbox.com/Public/Tools/BrandReputation.aspx'
     headers = {'User-Agent':useragent,
             'Origin':url,
@@ -212,7 +212,7 @@ def checkMXToolbox(domain):
     except Exception as e:
         print('[-] Error retrieving Google SafeBrowsing and PhishTank reputation!')
         return "error"
-
+"""
 def downloadMalwareDomains(malwaredomainsURL):
     url = malwaredomainsURL
     response = s.get(url=url,headers=headers,verify=False)
@@ -231,18 +231,19 @@ def checkDomain(domain):
     bluecoat = checkBluecoat(domain)
     print("[+] {}: {}".format(domain, bluecoat))
     
-    ibmxforce = checkIBMXForce(domain)
+    """ibmxforce = checkIBMXForce(domain)
     print("[+] {}: {}".format(domain, ibmxforce))
 
     ciscotalos = checkTalos(domain)
     print("[+] {}: {}".format(domain, ciscotalos))
 
     mxtoolbox = checkMXToolbox(domain)
-    print("[+] {}: {}".format(domain, mxtoolbox))
+    print("[+] {}: {}".format(domain, mxtoolbox))"""
 
     print("")
     
-    results = [domain,bluecoat,ibmxforce,ciscotalos,mxtoolbox]
+#    results = [domain,bluecoat,ibmxforce,ciscotalos,mxtoolbox]
+    results = [domain,bluecoat]
     return results
 
 def solveCaptcha(url,session):  
@@ -621,10 +622,10 @@ If you plan to use this content for illegal purpose, don't.  Have a nice day :)'
                 
                 bluecoat = checkBluecoat(domain)
                 print("[+] {}: {}".format(domain, bluecoat))
-                ibmxforce = checkIBMXForce(domain)
-                print("[+] {}: {}".format(domain, ibmxforce))
-                ciscotalos = checkTalos(domain)
-                print("[+] {}: {}".format(domain, ciscotalos))
+#                ibmxforce = checkIBMXForce(domain)
+#                print("[+] {}: {}".format(domain, ibmxforce))
+#                ciscotalos = checkTalos(domain)
+#                print("[+] {}: {}".format(domain, ciscotalos))
                 print("")
                 # Sleep to avoid captchas
                 doSleep(timing)
